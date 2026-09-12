@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Text Here (´▽`)♪</title>
+  
+  <!-- Retro Bitmap & Monospace Web Fonts for Authentic 2000s Aesthetic -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+  
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="./src/styles/main.css">
+  <link rel="stylesheet" href="./src/styles/retro-ui.css">
+  <link rel="stylesheet" href="./src/styles/timeline.css">
+</head>
+<body>
+  <!-- Atmospheric Desktop Viewport with blurred backdrop -->
+  <div class="desktop-viewport">
+    <div class="desktop-content" id="app">
+      <!-- ProgramWindow is dynamically mounted here -->
+    </div>
+  </div>
+
+  <!-- Main ES Module Entry Point (Zero external build dependencies) -->
+  <script type="module">
+    import { initApp } from "./src/components/App.js";
+    
+    document.addEventListener("DOMContentLoaded", () => {
+      const appContainer = document.getElementById("app");
+      initApp(appContainer);
+    });
+  </script>
+</body>
+</html>
