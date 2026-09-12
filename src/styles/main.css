@@ -1,0 +1,86 @@
+/* ==========================================================================
+   MAIN RESET & ATMOSPHERIC RETRO DESKTOP BACKGROUND
+   ========================================================================== */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+:root {
+  --color-window-border: #181818;
+  --color-window-inner-rim: #5c5c5c;
+  --color-titlebar-bg: #0d0d0d;
+  --color-tab-bg-inactive: #cfcfcf;
+  --color-tab-bg-active: #ffffff;
+  --color-tab-bar-bg: #bebebe;
+  --color-content-bg: #ffffff;
+  --color-panel-border: #cfcfcf;
+  --color-inset-border: #9f9f9f;
+  --color-button-face: #e4e4e4;
+  --color-button-border: #7c7c7c;
+  --color-text-main: #111111;
+  --color-text-muted: #555555;
+  --color-text-link: #0022cc;
+  
+  --font-retro-mono: "MS Gothic", "MS PGothic", "Courier New", "Dotum", monospace;
+  --font-pixel-title: "VT323", "Courier New", monospace;
+  --font-ui-system: "Tahoma", "MS Sans Serif", "Segoe UI", sans-serif;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  background-color: #1a1c1e;
+  font-family: var(--font-retro-mono);
+  color: var(--color-text-main);
+  overflow-x: hidden;
+  user-select: text;
+}
+
+/* Background scene: dark muted urban atmosphere with blur */
+.desktop-viewport {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 16px;
+  background: url("../../assets/background.jpg") no-repeat center center fixed;
+  background-size: cover;
+}
+
+/* Dark atmospheric vignette & blur layer behind window */
+.desktop-viewport::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, rgba(15, 17, 20, 0.45) 0%, rgba(5, 6, 8, 0.8) 100%);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Container to ensure window floats above backdrop */
+.desktop-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* Accessibility focus styles without breaking retro aesthetics */
+a:focus-visible, button:focus-visible {
+  outline: 1px dotted #111111;
+  outline-offset: 1px;
+}
